@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import re
 def text_cleaner(text,contractions,stop_words,isSummary=False):
-    ```
+    """
     Cleans the text/summary by removing hyperlinks, blank spaces,stop_words etc
     
     Parameters:
@@ -11,7 +11,7 @@ def text_cleaner(text,contractions,stop_words,isSummary=False):
         A Cleaned Text String  
 
 
-    ```
+    """
     text = text.lower() #lower everything
     text = BeautifulSoup(text,'lxml').text  #remove hyperlinks
     text = ' '.join([contractions[t] if t in contractions else t for t in text.split(' ')]) #expanding contractions
